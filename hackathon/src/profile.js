@@ -9,6 +9,7 @@ import CardContent from "@material-ui/core/CardContent";
 import ProfileCard from "./ProfileCard";
 import AboutMe from './AboutMe';
 import EventList from './EventList';
+import Interests from './Interests';
 
 export default class Profile extends Component {
   constructor(props) {
@@ -42,6 +43,8 @@ export default class Profile extends Component {
             <ProfileCard style = {{width : "100vw"}}/>
             <br/>
             <AboutMe style = {{width : "100vw"}}/>
+            <br/>
+            <Interests/>
           </div>
           <div style = {{width : "2%"}}>
 
@@ -50,6 +53,9 @@ export default class Profile extends Component {
             style={{ display: "flex", flexDirection: "column", width: "38%" }}
           >
               <EventList/>
+          </div>
+          <div>
+          
           </div>
         </div>
       </div>
