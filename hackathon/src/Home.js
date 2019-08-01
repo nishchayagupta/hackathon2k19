@@ -4,17 +4,124 @@ import { Container, Col, Row, ListGroup, ListGroupItem } from 'reactstrap';
 import "./App.css";
 import "./bootstrap.css"
   
+const convertTime = (time) => {
+    const timeArray = time.split(',');
+    const dow = timeArray[0];
+    const month = timeArray[1].split(' ')[0];
+    const day = timeArray[1].split(' ')[1];
+    return {dow: dow, month: month, day: day}
+}
+
 const markers = [{
+
     id: 1,
-    title: 'Event',
+
+    title: ' 2019 Milwaukee Comedy Festival in Milwaukee',
+
     position:{
-      lat: 41.040083,
-      lng:-87.900278,
+
+      lat: 43.038551,
+
+      lng: -87.9144907,
+
     },
-    date: "May 14, 2019",
+
+    date: "Friday,Aug 2",
+
+    time: "10:00 PM CDT",
+
+    location: "The Underground Collaborative "
+
+  } ,
+
+{
+
+    id: 2,
+
+    title: 'Milwaukee Irish Fest',
+
+    position:{
+
+      lat: 43.0331839,
+
+      lng: -87.8987917,
+
+    },
+
+    date: " Thursday,Aug 15",
+
+    time: "5:00 PM – 10:00 PM CDT",
+
+    location: " Henry Maier Festival Park"
+
+  } ,
+
+{
+
+    id: 3,
+
+    title: 'Code + Brews MKE',
+
+    position:{
+
+      lat: 43.0213768,
+
+      lng: -87.9130683,
+
+    },
+
+    date: "Saturday,Aug 3",
+
+    time: "9:00 AM – 12:00 PM CDT",
+
+    location: " Wantable, Inc. Headquarters "
+
+  } ,
+
+{
+
+    id: 5,
+
+    title: ' Wisconsin State Fair',
+
+    position:{
+
+      lat: 43.0213952,
+
+      lng: -88.0166571,
+
+    },
+
+    date: "Thursday,Aug 1",
+
+    time: "8:00 AM – 11:00 PM CDT",
+
+    location: "Wisconsin State Fair Park"
+
+  } ,
+
+{
+
+    id: 6,
+
+    title: '2019 Urban Island Beach Party',
+
+    position:{
+
+      lat: 41.040083,
+
+      lng:-87.900278,
+
+    },
+
+    date: "Friday,Aug 2",
+
     time: "5:00 PM – 11:00 PM CDT",
+
     location: "Lakeshore State Park, 500 North Harbor Drive"
-  }]
+
+  }
+]
 
 export default class Home extends Component {
     constructor() {
@@ -27,9 +134,7 @@ export default class Home extends Component {
     }
 
     onMarkerClick(element) {
-        console.log('here');
-        this.setState({lat: element.position.lat, long: element.position.lng},console.log('callback'));
-        console.log('here2');
+        this.setState({lat: element.position.lat, long: element.position.lng});
     }
 
     componentWillReceiveProps(nextProps) {
@@ -46,7 +151,20 @@ export default class Home extends Component {
                     <Col  style={{height: '60vh', width: '100vh'}} sm="8"><Map lat={this.state.lat} lng={this.state.lng} markers={markers}/></Col>
                     <Col  sm="4">
                         <ListGroup style={{padding: '0px 10px'}}>
-                            {markers.map((element) => <ListGroupItem value={element} onClick={() => this.onMarkerClick(element)}>{element.title}</ListGroupItem>)}
+                            {markers.map((element) => 
+                            <Row>
+                                <Col sm="5">
+                                    <time datetime="2014-09-20" class="icon">
+                                        <em>{convertTime(element.date).dow}</em>
+                                        <strong>{convertTime(element.date).month}</strong>
+                                        <span>{convertTime(element.date).day}</span>
+                                    </time>
+                                </Col>
+                                <Col sm="7" offset>
+                                    <ListGroupItem value={element} onClick={() => this.onMarkerClick(element)}>{element.title}</ListGroupItem>
+                                </Col>
+                            </Row>
+                            )}
                         </ListGroup>
                     </Col>
                 </Row>
