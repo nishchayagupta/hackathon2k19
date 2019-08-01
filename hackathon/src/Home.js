@@ -1,6 +1,6 @@
 import Map from './Map';
 import React, { Component } from 'react';
-import { Container, Col, Row, ListGroup, ListGroupItem } from 'reactstrap';
+import { Alert, Collapse, Container, Col, Row, ListGroup, ListGroupItem } from 'reactstrap';
 import "./App.css";
 import "./bootstrap.css"
   
@@ -128,13 +128,19 @@ export default class Home extends Component {
         super();
         this.state = {
             lat: 43.040083,
-            lng: -87.900278
+            lng: -87.900278,
+            info: 0
         }
         this.onMarkerClick = this.onMarkerClick.bind(this);
     }
 
-    onMarkerClick(element) {
-        this.setState({lat: element.position.lat, long: element.position.lng});
+    onMarkerClick(element, index) {
+        this.setState({
+            lat: element.position.lat, 
+            long: element.position.lng,
+            eventInfoToggle: true,
+            info: index
+        });
     }
 
     componentWillReceiveProps(nextProps) {
@@ -146,12 +152,13 @@ export default class Home extends Component {
 
     render() {
         return (
+            <div>
             <Container>
                 <Row >
                     <Col  style={{height: '60vh', width: '100vh'}} sm="8"><Map lat={this.state.lat} lng={this.state.lng} markers={markers}/></Col>
                     <Col  sm="4">
                         <ListGroup style={{padding: '0px 10px'}}>
-                            {markers.map((element) => 
+                            {markers.map((element,index) => 
                             <Row>
                                 <Col sm="5">
                                     <time datetime="2014-09-20" class="icon">
@@ -161,7 +168,7 @@ export default class Home extends Component {
                                     </time>
                                 </Col>
                                 <Col sm="7" offset>
-                                    <ListGroupItem value={element} onClick={() => this.onMarkerClick(element)}>{element.title}</ListGroupItem>
+                                    <ListGroupItem onClick={() => this.onMarkerClick(element,index)}>{element.title}</ListGroupItem>
                                 </Col>
                             </Row>
                             )}
@@ -169,6 +176,15 @@ export default class Home extends Component {
                     </Col>
                 </Row>
             </Container>
+
+            <Collapse isOpen={this.state.eventInfoToggle}>
+                <Alert color="dark" style={{margin:'5%'}}>
+                    <h4>{markers[this.state.info].title}</h4>
+                    <h6>When:</h6> <p>{markers[this.state.info].date} {markers[this.state.info].time}</p>
+                    <h6>Where:</h6> {markers[this.state.info].location}
+                </Alert>
+            </Collapse>
+            </div>
         );
     }
 }
