@@ -26,9 +26,9 @@ const markers = [{
 
     },
 
-    date: "Friday,Aug 2",
+    date: "Friday, Aug 2",
 
-    time: "10:00 PM CDT",
+    time: "7:30 PM CDT",
 
     location: "The Underground Collaborative "
 
@@ -48,7 +48,7 @@ const markers = [{
 
     },
 
-    date: " Thursday,Aug 15",
+    date: " Thursday, Aug 15",
 
     time: "5:00 PM – 10:00 PM CDT",
 
@@ -70,7 +70,7 @@ const markers = [{
 
     },
 
-    date: "Saturday,Aug 3",
+    date: "Saturday, Aug 3",
 
     time: "9:00 AM – 12:00 PM CDT",
 
@@ -92,7 +92,7 @@ const markers = [{
 
     },
 
-    date: "Thursday,Aug 1",
+    date: "Thursday, Aug 1",
 
     time: "8:00 AM – 11:00 PM CDT",
 
@@ -114,7 +114,7 @@ const markers = [{
 
     },
 
-    date: "Friday,Aug 2",
+    date: "Friday, Aug 2",
 
     time: "5:00 PM – 11:00 PM CDT",
 
@@ -165,16 +165,16 @@ export default class Home extends Component {
                         <ListGroup style={{padding: '0px 10px'}}>
                             {markers.map((element,index) => 
                             <Row>
-                                <Col sm="5">
+                                <div class="column-left" sm="5">
                                     <time datetime="2014-09-20" class="icon">
                                         <em>{convertTime(element.date).dow}</em>
                                         <strong>{convertTime(element.date).month}</strong>
                                         <span>{convertTime(element.date).day}</span>
                                     </time>
-                                </Col>
-                                <Col sm="7" offset>
+                                </div>
+                                <div class="column-right" sm="7">
                                     <ListGroupItem onClick={() => this.onMarkerClick(element,index)}>{element.title}</ListGroupItem>
-                                </Col>
+                                </div>
                             </Row>
                             )}
                         </ListGroup>

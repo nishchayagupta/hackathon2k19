@@ -90,6 +90,17 @@ time.icon span
 .col-sm-6 {
   padding: 4px;
 }
+
+.column-left {
+  width: 25%;
+  padding: 0 10px 10px 10px;
+}
+
+.column-right {
+  width: 75%;
+  padding: 0 10px 10px 10px;
+}
+
 .col-sm-5 {
   width: 30%;
 }
