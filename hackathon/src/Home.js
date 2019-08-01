@@ -153,6 +153,11 @@ export default class Home extends Component {
     render() {
         return (
             <div>
+            <div style={{margin:'2% 5% 2% 5%'}}>
+                Beyond Mason St connects the city to its people. Explore an event’s details to chat with others interested, check who is going, and share the event with your coworkers. Design your profile and check-in to your favorite places.
+                Discover what lies beyond Mason St coordinating and connecting with your city and its people.
+            </div>
+
             <Container>
                 <Row >
                     <Col  style={{height: '60vh', width: '100vh'}} sm="8"><Map lat={this.state.lat} lng={this.state.lng} markers={markers}/></Col>
@@ -178,7 +183,7 @@ export default class Home extends Component {
             </Container>
 
             <Collapse isOpen={this.state.eventInfoToggle}>
-                <Alert color="info" style={{margin:'5%'}}>
+                <Alert color="info" style={{margin:'2% 5% 2% 5%'}}>
                     <h4>{markers[this.state.info].title}</h4>
                     <h6>When:</h6> <p>{markers[this.state.info].date} {markers[this.state.info].time}</p>
                     <h6>Where:</h6> {markers[this.state.info].location}
