@@ -187,6 +187,7 @@ export default class Home extends Component {
                     <h4>{markers[this.state.info].title}</h4>
                     <h6>When:</h6> <p>{markers[this.state.info].date} {markers[this.state.info].time}</p>
                     <h6>Where:</h6> {markers[this.state.info].location}
+                    <a href='/event'>More details</a>
                 </Alert>
             </Collapse>
             </div>

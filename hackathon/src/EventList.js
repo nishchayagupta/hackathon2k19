@@ -69,6 +69,7 @@ export default class EventList extends React.Component {
           <CardContent>
             <div
               style={{
+                'margin-top': '3vh',
                 display: "flex",
                 flexDirection: "row",
                 width: "-webkit-fill-available",
@@ -81,7 +82,7 @@ export default class EventList extends React.Component {
                 style={{
                   width: "100%",
                   height: "100%",
-                  margin: "1vw"
+                  margin: "2vw"
                 }}
               >
                 <Typography
