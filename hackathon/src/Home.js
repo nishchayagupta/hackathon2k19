@@ -5,11 +5,15 @@ import "./App.css";
 import "./bootstrap.css"
   
 const markers = [{
+    id: 1,
     title: 'Event',
     position:{
       lat: 41.040083,
       lng:-87.900278,
-    }
+    },
+    date: "May 14, 2019",
+    time: "5:00 PM – 11:00 PM CDT",
+    location: "Lakeshore State Park, 500 North Harbor Drive"
   }]
 
 export default class Home extends Component {
