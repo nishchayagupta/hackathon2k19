@@ -178,7 +178,7 @@ export default class Home extends Component {
             </Container>
 
             <Collapse isOpen={this.state.eventInfoToggle}>
-                <Alert color="dark" style={{margin:'5%'}}>
+                <Alert color="info" style={{margin:'5%'}}>
                     <h4>{markers[this.state.info].title}</h4>
                     <h6>When:</h6> <p>{markers[this.state.info].date} {markers[this.state.info].time}</p>
                     <h6>Where:</h6> {markers[this.state.info].location}
