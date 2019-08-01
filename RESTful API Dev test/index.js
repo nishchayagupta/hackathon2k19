@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const db = require('./routes')
-const port = 3000
+const port = 8080
 
 app.use(bodyParser.json())
 app.use(
