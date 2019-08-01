@@ -26,7 +26,30 @@ export default class EventList extends React.Component {
     this.setState({ selectedIndex: index });
   }
 
-
+  returnListItem = eventName => {
+    return (
+      <div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignContent: "center",
+            alignItems:"center",
+            textAlign:"center"
+          }}
+        >
+          <ListItem
+            button
+            selected={this.state.selectedIndex === 0}
+            onClick={event => this.handleListItemClick(event, 0)}
+          >
+            <ListItemText primary={eventName} id="ProfileTitleName" style = {{textAlign :"center"}}/>
+          </ListItem>
+        </div>
+        <br />
+      </div>
+    );
+  };
 
   render() {
     console.log(this.state.events);
@@ -78,53 +101,11 @@ export default class EventList extends React.Component {
                     height: "-webkit-fill-available"
                   }}
                 >
-                  <ListItem
-                    button
-                    selected={this.state.selectedIndex === 0}
-                    onClick={event => this.handleListItemClick(event, 0)}
-                  >
-                    <ListItemText primary= "Event 1" />
-                  </ListItem>
-
-                  <ListItem
-                    button
-                    selected={this.state.selectedIndex === 0}
-                    onClick={event => this.handleListItemClick(event, 0)}
-                  >
-                    <ListItemText primary= "Event 2" />
-                  </ListItem>
-
-                  <ListItem
-                    button
-                    selected={this.state.selectedIndex === 0}
-                    onClick={event => this.handleListItemClick(event, 0)}
-                  >
-                    <ListItemText primary= "Event 3" />
-                  </ListItem>
-
-                  <ListItem
-                    button
-                    selected={this.state.selectedIndex === 0}
-                    onClick={event => this.handleListItemClick(event, 0)}
-                  >
-                    <ListItemText primary= "Event 4" />
-                  </ListItem>
-
-                  <ListItem
-                    button
-                    selected={this.state.selectedIndex === 0}
-                    onClick={event => this.handleListItemClick(event, 0)}
-                  >
-                    <ListItemText primary= "Event 5" />
-                  </ListItem>
-
-                  <ListItem
-                    button
-                    selected={this.state.selectedIndex === 0}
-                    onClick={event => this.handleListItemClick(event, 0)}
-                  >
-                    <ListItemText primary= "Event 6" />
-                  </ListItem>
+                  {this.returnListItem("Event 1")}
+                  {this.returnListItem("Event 2")}
+                  {this.returnListItem("Event 3")}
+                  {this.returnListItem("Event 4")}
+                  {this.returnListItem("Event 5")}
                 </List>
               </div>
             </div>
